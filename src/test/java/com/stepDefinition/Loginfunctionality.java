@@ -25,7 +25,7 @@ public class Loginfunctionality {
 	   public void user_navigates_to_Facebook() {
 		   
 		    driver.navigate().to("https://www.facebook.com/");
-		   boolean a =  driver.findElement(By.name("a")).isEnabled();
+		   
 	   }
 
 	   
