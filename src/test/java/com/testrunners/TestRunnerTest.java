@@ -10,7 +10,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 
 features = {"src/test/resources/featurefiles"},
-plugin = {"com.cucumber.listener.ExtentCucumberFormatter:src/test/resources/reports/report.html"},
+plugin = {"json:target/cucumber.json","com.cucumber.listener.ExtentCucumberFormatter:src/test/resources/reports/report.html"},
 tags = {"@smoke"},
 glue = {"com.stepDefinition"},
 dryRun = false,
