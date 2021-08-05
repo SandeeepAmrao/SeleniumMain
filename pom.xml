@@ -86,11 +86,13 @@
             <version>2.41.2</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
-        <dependency>
-            <groupId>net.masterthought</groupId>
-            <artifactId>cucumber-reporting</artifactId>
-            <version>3.17.1</version>
-        </dependency>
+        <!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+<dependency>
+    <groupId>net.masterthought</groupId>
+    <artifactId>cucumber-reporting</artifactId>
+    <version>5.5.4</version>
+</dependency>
+
         <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
@@ -120,6 +122,36 @@
     <testFailureIgnore>true</testFailureIgnore>
     </configuration>
     </plugin>
+    
+    <plugin>
+    <groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>5.5.4</version>
+    <executions>
+        <execution>
+            <id>execution</id>
+            <phase>verify</phase>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+            <configuration>
+                <projectName>Mavenproject</projectName>
+                <!-- output directory for the generated report -->
+                <outputDirectory>${project.build.directory}/cucumber-maven-report</outputDirectory>
+                <inputDirectory>${project.build.directory}/cucumber-json</inputDirectory>
+                <jsonFiles>
+                    <!-- supports wildcard or name pattern -->
+                    <param>**/*.json</param>
+                </jsonFiles>
+                <skippedFails>true</skippedFails>
+                <enableFlashCharts>true</enableFlashCharts>
+                <buildNumber>10.2.1</buildNumber>
+                <parallelTesting>false</parallelTesting>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+    
   </plugins>
   </build>
   
