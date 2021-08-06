@@ -85,13 +85,7 @@
             <artifactId>extentreports</artifactId>
             <version>2.41.2</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
-        <!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
-<dependency>
-    <groupId>net.masterthought</groupId>
-    <artifactId>cucumber-reporting</artifactId>
-    <version>5.5.4</version>
-</dependency>
+        
 
         <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
         <dependency>
@@ -99,7 +93,27 @@
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
         </dependency>
-        
+         
+         <!-- https://mvnrepository.com/artifact/de.monochromata.cucumber/reporting-plugin -->
+		<dependency>
+		    <groupId>de.monochromata.cucumber</groupId>
+		    <artifactId>reporting-plugin</artifactId>
+		    <version>5.0.0</version>
+		</dependency>
+		         
+		         <!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+		<dependency>
+		    <groupId>net.masterthought</groupId>
+		    <artifactId>cucumber-reporting</artifactId>
+		    <version>5.5.4</version>
+		</dependency>
+	
+	<dependency>	 
+	<groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>5.3.0</version>
+      	</dependency>
+	           
      </dependencies>
   
   <build>
@@ -107,7 +121,7 @@
   <plugin>
      <groupId>org.apache.maven.plugins</groupId>
      <artifactId>maven-compiler-plugin</artifactId>
-  <version>3.8.1</version>
+      <version>3.8.1</version>
         <configuration>
       <source>1.8</source>
       <target>1.8</target>
@@ -126,31 +140,27 @@
     <plugin>
     <groupId>net.masterthought</groupId>
     <artifactId>maven-cucumber-reporting</artifactId>
-    <version>5.5.4</version>
+    <version>5.3.0</version>
     <executions>
-        <execution>
-            <id>execution</id>
-            <phase>verify</phase>
-            <goals>
-                <goal>generate</goal>
-            </goals>
-            <configuration>
-                <projectName>Mavenproject</projectName>
-                <!-- output directory for the generated report -->
-                <outputDirectory>${project.build.directory}/cucumber-maven-report</outputDirectory>
-                <inputDirectory>${project.build.directory}/cucumber-json</inputDirectory>
+     <execution>
+     	<id>execution</id>
+     	<phase>verify</phase>
+     	  <goals>
+     	   <goal>generate</goal>
+     	  </goals>
+     	     <configuration>
+                <projectName>ExecutionTest</projectName>
+                <skip>false</skip>
+                <outputDirectory>${project.build.directory}/html-reports</outputDirectory>
+                <inputDirectory>${project.build.directory}/cucumber-reports</inputDirectory>
                 <jsonFiles>
-                    <!-- supports wildcard or name pattern -->
                     <param>**/*.json</param>
                 </jsonFiles>
-                <skippedFails>true</skippedFails>
-                <enableFlashCharts>true</enableFlashCharts>
-                <buildNumber>10.2.1</buildNumber>
-                <parallelTesting>false</parallelTesting>
             </configuration>
-        </execution>
+     	          	     
+     </execution>
     </executions>
-</plugin>
+    </plugin>
     
   </plugins>
   </build>

@@ -10,12 +10,12 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 
 features = {"src/test/resources/featurefiles"},
-plugin = {"pretty","html:target/cucumber","json:target/cucumber.json","com.cucumber.listener.ExtentCucumberFormatter:src/test/resources/reports/report.html"},
+plugin = {"pretty","html:target/cucumber-pretty","json:target/cucumber.json""},
 tags = {"@smoke"},
 glue = {"com.stepDefinition"},
 dryRun = false,
 monochrome = false)
 
-public class TestRunner {
+public class TestRunnerTest {
 	 
 	}
