@@ -14,7 +14,7 @@ plugin = {"pretty","html:target/cucumber-pretty","json:target/cucumber.json""},
 tags = {"@smoke"},
 glue = {"com.stepDefinition"},
 dryRun = false,
-monochrome = false)
+monochrome = true
 
 public class TestRunnerTest {
 	 
